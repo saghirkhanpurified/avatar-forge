@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PixelForge | Custom AI Avatars",
-  description: "Generate and download custom 1-of-1 retro pixel avatars instantly.",
+  title: "Avatar Forge",
+  description: "The ultimate AI-powered NFT creation terminal.",
 };
 
 export default function RootLayout({
