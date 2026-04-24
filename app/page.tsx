@@ -4,6 +4,14 @@ import { useState, useEffect } from "react";
 
 const LOADING_MSGS = ["Connecting to Node...", "Compiling Trait DNA...", "Rendering Pixel Grid...", "Minting Asset..."];
 
+// WE ADDED YOUR VAULT IMAGES HERE
+const vaultItems = [
+  { id: "084", src: "/vault-1.png", prompt: "sad hero" },
+  { id: "085", src: "/vault-2.png", prompt: "sad hero" },
+  { id: "086", src: "/vault-3.png", prompt: "sad hero" },
+  { id: "087", src: "/vault-4.png", prompt: "sad hero" }
+];
+
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [imgUrl, setImgUrl] = useState(""); 
@@ -138,21 +146,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* RECENT DROPS / SHOWCASE */}
+        {/* UPDATED RECENT DROPS / SHOWCASE */}
         <section id="gallery" className="w-full bg-white py-24 border-y border-slate-200 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">THE VAULT.</h2>
-            <p className="text-slate-500 text-sm mb-12 max-w-2xl mx-auto">A glimpse into the metadata. These are examples of assets forged by our Neural Engine. No two outputs are ever exactly the same.</p>
+            <p className="text-slate-500 text-sm mb-12 max-w-2xl mx-auto">A glimpse into the metadata. These are examples of assets forged by our Neural Engine. Notice how the same prompt generates entirely unique DNA.</p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-square bg-slate-50 rounded-2xl border border-slate-200 flex flex-col items-center justify-center p-4 group hover:border-violet-300 transition-colors shadow-sm">
-                  <div className="w-full h-full bg-slate-200/50 rounded-xl mb-3 flex items-center justify-center overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="text-slate-400 text-xs font-mono">ASSET_DATA_0{i}</span>
+              {vaultItems.map((item, i) => (
+                <div key={i} className="bg-slate-50 rounded-2xl border border-slate-200 p-3 group hover:border-violet-300 transition-colors shadow-sm">
+                  {/* Image Container with Hover Overlay */}
+                  <div className="w-full aspect-square bg-slate-200/50 rounded-xl mb-3 flex items-center justify-center overflow-hidden relative">
+                    <img src={item.src} alt={item.prompt} className="w-full h-full object-cover" style={{ imageRendering: "pixelated" }} />
+                    
+                    {/* Dark overlay that appears on hover to show prompt */}
+                    <div className="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                      <p className="text-white text-xs font-bold uppercase tracking-widest text-center">
+                        PROMPT:<br/>"{item.prompt}"
+                      </p>
+                    </div>
                   </div>
+                  
+                  {/* ID Tag below image */}
                   <div className="w-full flex justify-between items-center px-2">
-                    <span className="text-[10px] text-slate-400 font-mono">#000{i}</span>
+                    <span className="text-[10px] text-slate-400 font-mono font-bold">#{item.id}</span>
                     <span className="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-violet-500 transition-colors" />
                   </div>
                 </div>
