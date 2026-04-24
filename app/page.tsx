@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 const LOADING_MSGS = ["Starting the drawing...", "Adding colors...", "Making it pixel perfect...", "Finishing up..."];
 const MAX_DAILY_GENS = 3;
 
+// UPDATED: The Vault now has your new premium prompts!
 const vaultItems = [
-  { id: "084", src: "/vault-1.png", prompt: "sad hero" },
-  { id: "085", src: "/vault-2.png", prompt: "sad hero" },
-  { id: "086", src: "/vault-3.png", prompt: "sad hero" },
-  { id: "087", src: "/vault-4.png", prompt: "sad hero" }
+  { id: "084", src: "/vault-1.png", prompt: "A cyberpunk hacker in a dark hoodie with glowing neon green glasses" },
+  { id: "085", src: "/vault-2.png", prompt: "A fiery knight wearing heavy golden armor with glowing red eyes" },
+  { id: "086", src: "/vault-3.png", prompt: "A cool ape wearing a golden crown and dark sunglasses" },
+  { id: "087", src: "/vault-4.png", prompt: "An alien astronaut in a sleek white spacesuit with a purple visor" }
 ];
 
 export default function Home() {
@@ -164,7 +165,7 @@ export default function Home() {
               {error && <p className="text-red-500 mb-4 text-center text-[10px] sm:text-[11px] uppercase tracking-wider font-bold bg-red-50 py-3 rounded-xl border border-red-100">{error}</p>}
 
               <div className="space-y-3 sm:space-y-4 relative z-10">
-                <input type="text" value={prompt} onChange={(e) => setPrompt(e.target.value)} disabled={outOfGens || isWorking} placeholder="e.g. A cool zombie, A sad hero..." className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 sm:p-4 focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 outline-none text-sm text-slate-900 placeholder-slate-400 transition-all shadow-inner disabled:opacity-50" />
+                <input type="text" value={prompt} onChange={(e) => setPrompt(e.target.value)} disabled={outOfGens || isWorking} placeholder="e.g. A cyberpunk hacker, A fantasy warrior..." className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 sm:p-4 focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 outline-none text-sm text-slate-900 placeholder-slate-400 transition-all shadow-inner disabled:opacity-50" />
                 <button 
                   onClick={handleGenerate} 
                   disabled={isWorking || outOfGens || !isLimitChecked} 
@@ -177,7 +178,6 @@ export default function Home() {
 
             {/* A-ADS BANNER */}
             <div className="w-full bg-white rounded-[20px] border border-slate-200 shadow-sm overflow-hidden flex items-center justify-center p-3" style={{ minHeight: '100px' }}>
-              {/* BEGIN AADS AD UNIT 2435461 */}
               <div id="frame" style={{ width: '100%', margin: 'auto', position: 'relative', zIndex: 99998 }}>
                 <iframe 
                   data-aa='2435461' 
@@ -186,7 +186,6 @@ export default function Home() {
                   title="A-ADS Banner"
                 ></iframe>
               </div>
-              {/* END AADS AD UNIT 2435461 */}
             </div>
 
           </div>
@@ -279,6 +278,8 @@ export default function Home() {
             <a href="#terminal" className="hover:text-violet-600 transition-colors">Generator</a>
             <a href="#about" className="hover:text-violet-600 transition-colors">About Us</a>
             <a href="#faq" className="hover:text-violet-600 transition-colors">FAQ</a>
+            {/* UPDATED: Twitter Link in Footer */}
+            <a href="https://x.com/YourHandle" target="_blank" rel="noopener noreferrer" className="hover:text-violet-600 transition-colors">Twitter (X)</a>
           </div>
           <p className="text-slate-400 text-[10px] sm:text-xs font-mono uppercase tracking-wider">
             © {new Date().getFullYear()} THE AVATAR FORGE. ALL RIGHTS RESERVED.
@@ -296,11 +297,17 @@ function NavBar() {
         <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-tr from-violet-600 to-blue-600 rounded-[6px] shadow-sm shrink-0" />
         <span className="shrink-0">THE AVATAR FORGE</span>
       </div>
-      <div className="hidden md:flex gap-8 text-xs font-bold tracking-widest text-slate-500 uppercase">
+      <div className="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest text-slate-500 uppercase">
         <a href="#gallery" className="hover:text-violet-600 transition-colors">Vault</a>
         <a href="#features" className="hover:text-violet-600 transition-colors">Features</a>
         <a href="#about" className="hover:text-violet-600 transition-colors">About</a>
         <a href="#faq" className="hover:text-violet-600 transition-colors">FAQ</a>
+        {/* UPDATED: X/Twitter Icon in Navbar */}
+        <a href="https://x.com/YourHandle" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
       </div>
       <a href="#terminal" className="md:hidden text-[10px] font-black tracking-widest bg-violet-100 text-violet-700 px-3 py-2 rounded-lg border border-violet-200 uppercase shrink-0">
         CREATE
