@@ -3,9 +3,7 @@
 import { useState, useEffect } from "react";
 
 const LOADING_MSGS = ["Starting the drawing...", "Adding colors...", "Making it pixel perfect...", "Finishing up..."];
-const MAX_DAILY_GENS = 3;
 
-// UPDATED: The Vault now has your new premium prompts!
 const vaultItems = [
   { id: "084", src: "/vault-1.png", prompt: "A cyberpunk hacker in a dark hoodie with glowing neon green glasses" },
   { id: "085", src: "/vault-2.png", prompt: "A fiery knight wearing heavy golden armor with glowing red eyes" },
@@ -21,24 +19,6 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadStep, setLoadStep] = useState(0);
-  
-  const [gensLeft, setGensLeft] = useState(MAX_DAILY_GENS);
-  const [isLimitChecked, setIsLimitChecked] = useState(false);
-
-  useEffect(() => {
-    const today = new Date().toDateString();
-    const storedDate = localStorage.getItem("forge_date");
-    const storedGens = localStorage.getItem("forge_gens");
-
-    if (storedDate === today && storedGens !== null) {
-      setGensLeft(parseInt(storedGens));
-    } else {
-      localStorage.setItem("forge_date", today);
-      localStorage.setItem("forge_gens", MAX_DAILY_GENS.toString());
-      setGensLeft(MAX_DAILY_GENS);
-    }
-    setIsLimitChecked(true);
-  }, []);
 
   useEffect(() => {
     const int = isGenerating ? setInterval(() => setLoadStep(p => (p + 1) % 4), 2500) : undefined;
@@ -48,7 +28,6 @@ export default function Home() {
 
   const handleGenerate = async () => {
     if (!prompt) return setError("Please type what you want us to draw.");
-    if (gensLeft <= 0) return setError("You've used your 3 free creations for today. Come back tomorrow!");
     
     setIsGenerating(true); setIsLoaded(false); setError(""); setImgUrl(""); 
 
@@ -61,11 +40,6 @@ export default function Home() {
       
       const data = await res.json();
       setImgUrl(data.imageUrl); 
-      
-      const newCount = gensLeft - 1;
-      setGensLeft(newCount);
-      localStorage.setItem("forge_gens", newCount.toString());
-
     } catch (err: any) { setError(err.message); } 
     finally { setIsGenerating(false); }
   };
@@ -89,7 +63,6 @@ export default function Home() {
   };
 
   const isWorking = isGenerating || (imgUrl !== "" && !isLoaded);
-  const outOfGens = gensLeft <= 0;
 
   return (
     <main className="min-h-[100dvh] w-full bg-slate-50 text-slate-600 font-sans selection:bg-violet-200 overflow-x-hidden flex flex-col relative">
@@ -165,13 +138,13 @@ export default function Home() {
               {error && <p className="text-red-500 mb-4 text-center text-[10px] sm:text-[11px] uppercase tracking-wider font-bold bg-red-50 py-3 rounded-xl border border-red-100">{error}</p>}
 
               <div className="space-y-3 sm:space-y-4 relative z-10">
-                <input type="text" value={prompt} onChange={(e) => setPrompt(e.target.value)} disabled={outOfGens || isWorking} placeholder="e.g. A cyberpunk hacker, A fantasy warrior..." className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 sm:p-4 focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 outline-none text-sm text-slate-900 placeholder-slate-400 transition-all shadow-inner disabled:opacity-50" />
+                <input type="text" value={prompt} onChange={(e) => setPrompt(e.target.value)} disabled={isWorking} placeholder="e.g. A cyberpunk hacker, A fantasy warrior..." className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 sm:p-4 focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 outline-none text-sm text-slate-900 placeholder-slate-400 transition-all shadow-inner disabled:opacity-50" />
                 <button 
                   onClick={handleGenerate} 
-                  disabled={isWorking || outOfGens || !isLimitChecked} 
-                  className={`w-full font-black tracking-widest uppercase py-3.5 sm:py-4 rounded-xl transition-all active:scale-[0.98] text-[10px] sm:text-xs shadow-lg ${outOfGens ? 'bg-slate-200 text-slate-400 shadow-none cursor-not-allowed' : 'bg-slate-900 hover:bg-black text-white disabled:opacity-50'}`}
+                  disabled={isWorking} 
+                  className="w-full font-black tracking-widest uppercase py-3.5 sm:py-4 rounded-xl transition-all active:scale-[0.98] text-[10px] sm:text-xs shadow-lg bg-slate-900 hover:bg-black text-white disabled:opacity-50"
                 >
-                  {isWorking ? "DRAWING NOW..." : outOfGens ? "DAILY LIMIT REACHED" : `CREATE AVATAR (${gensLeft} LEFT)`}
+                  {isWorking ? "DRAWING NOW..." : "CREATE AVATAR"}
                 </button>
               </div>
             </div>
@@ -278,7 +251,6 @@ export default function Home() {
             <a href="#terminal" className="hover:text-violet-600 transition-colors">Generator</a>
             <a href="#about" className="hover:text-violet-600 transition-colors">About Us</a>
             <a href="#faq" className="hover:text-violet-600 transition-colors">FAQ</a>
-            {/* UPDATED: Twitter Link in Footer */}
             <a href="https://x.com/SaghirWeb3" target="_blank" rel="noopener noreferrer" className="hover:text-violet-600 transition-colors">Twitter (X)</a>
           </div>
           <p className="text-slate-400 text-[10px] sm:text-xs font-mono uppercase tracking-wider">
@@ -302,7 +274,6 @@ function NavBar() {
         <a href="#features" className="hover:text-violet-600 transition-colors">Features</a>
         <a href="#about" className="hover:text-violet-600 transition-colors">About</a>
         <a href="#faq" className="hover:text-violet-600 transition-colors">FAQ</a>
-        {/* UPDATED: X/Twitter Icon in Navbar */}
         <a href="https://x.com/SaghirWeb3" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
