@@ -279,7 +279,7 @@ export default function Home() {
             <a href="#about" className="hover:text-violet-600 transition-colors">About Us</a>
             <a href="#faq" className="hover:text-violet-600 transition-colors">FAQ</a>
             {/* UPDATED: Twitter Link in Footer */}
-            <a href="https://x.com/YourHandle" target="_blank" rel="noopener noreferrer" className="hover:text-violet-600 transition-colors">Twitter (X)</a>
+            <a href="https://x.com/SaghirWeb3" target="_blank" rel="noopener noreferrer" className="hover:text-violet-600 transition-colors">Twitter (X)</a>
           </div>
           <p className="text-slate-400 text-[10px] sm:text-xs font-mono uppercase tracking-wider">
             © {new Date().getFullYear()} THE AVATAR FORGE. ALL RIGHTS RESERVED.
