@@ -75,7 +75,7 @@ export default function Home() {
 
       <div className="relative z-10">
         {/* HERO SECTION */}
-        <section id="terminal" className="scroll-mt-32 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-24 pb-20 flex flex-col lg:flex-row items-center gap-10 sm:gap-16 min-h-[85vh]">
+        <section id="terminal" className="scroll-mt-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-24 pb-20 flex flex-col lg:flex-row items-center gap-10 sm:gap-16 min-h-[85vh]">
           
           <div className="flex-1 text-center lg:text-left space-y-6 sm:space-y-8">
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-[10px] sm:text-xs font-black tracking-widest uppercase shadow-sm">
@@ -91,7 +91,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <a href="#about" className="text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors border-b-2 border-slate-200 hover:border-violet-600 pb-1">
-                Read the Complete Manifesto
+                Learn About Our Engine
               </a>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function Home() {
         </section>
 
         {/* VAULT SECTION */}
-        <section id="gallery" className="scroll-mt-32 w-full bg-white py-16 sm:py-24 border-y border-slate-200 shadow-sm">
+        <section id="gallery" className="scroll-mt-20 w-full bg-white py-20 sm:py-28 border-y border-slate-200 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-4 sm:mb-6 tracking-tight">THE VAULT.</h2>
             <div className="max-w-3xl mx-auto space-y-4 mb-10 sm:mb-16">
@@ -177,7 +177,7 @@ export default function Home() {
         </section>
 
         {/* FEATURES SECTION */}
-        <section id="features" className="scroll-mt-32 w-full py-16 sm:py-24">
+        <section id="features" className="scroll-mt-20 w-full py-20 sm:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-10 sm:mb-16">ENGINE CAPABILITIES.</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -188,8 +188,29 @@ export default function Home() {
           </div>
         </section>
 
+        {/* NEW ABOUT US SECTION */}
+        <section id="about" className="scroll-mt-20 w-full bg-white py-20 sm:py-28 border-t border-slate-200 shadow-sm">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 sm:space-y-10">
+            <div className="text-center">
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-4 sm:mb-6">WHO WE ARE.</h2>
+              <div className="w-16 sm:w-24 h-1 bg-violet-600 mx-auto rounded-full"></div>
+            </div>
+            <div className="space-y-6 sm:space-y-8 text-slate-600 leading-loose text-sm sm:text-lg">
+              <p>
+                Avatar Forge Technologies is a decentralized collective of AI engineers, software developers, and Web3 natives. We spent years navigating the digital art and NFT spaces, watching as incredible communities were built behind massive paywalls. 
+              </p>
+              <p>
+                We realized that the barrier to entry for establishing a premium digital identity was too high. You either had to pay thousands of dollars for a blue-chip PFP on the secondary market, or you had to hire a pixel artist and wait weeks for a commission.
+              </p>
+              <p>
+                We built Avatar Forge to democratize digital identity. By fine-tuning state-of-the-art diffusion models specifically for retro grid aesthetics, we have given anyone with an internet connection the ability to act as their own creative director.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* MANIFESTO SECTION */}
-        <section id="about" className="scroll-mt-32 w-full bg-white py-16 sm:py-24 border-y border-slate-200 shadow-sm">
+        <section id="manifesto" className="scroll-mt-20 w-full bg-white py-20 sm:py-28 border-b border-slate-200 shadow-sm">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 sm:space-y-10">
             <h2 className="text-3xl sm:text-5xl font-black text-slate-900">THE MANIFESTO.</h2>
             <div className="space-y-6 sm:space-y-8 text-slate-600 leading-loose text-sm sm:text-lg">
@@ -202,13 +223,43 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FAQ SECTION */}
-        <section id="faq" className="scroll-mt-32 w-full py-16 sm:py-24">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-12">SYSTEM LOGS & FAQ</h2>
+        {/* MASSIVELY EXPANDED FAQ SECTION */}
+        <section id="faq" className="scroll-mt-20 w-full py-20 sm:py-28">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-4">SYSTEM LOGS & FAQ</h2>
+              <p className="text-slate-500 text-sm sm:text-lg">Everything you need to know about the Forge architecture.</p>
+            </div>
+            
             <div className="space-y-4 sm:space-y-6 text-left">
-              <FAQItem q="Who owns the rights?" a="You hold full commercial and non-commercial rights once you download the asset." />
-              <FAQItem q="Can I mint these?" a="Absolutely. The files are optimized PNGs ready for Ethereum, Solana, Base, and more." />
+              <FAQItem 
+                q="Who owns the commercial rights to the generated art?" 
+                a="You do. Once you execute the generation protocol and download the asset to your device, you hold full commercial and non-commercial rights. You are free to use the avatar for your business, mint it as an NFT, put it on merchandise, or use it in a video game." 
+              />
+              <FAQItem 
+                q="Do I need a Web3 Wallet (MetaMask/Phantom) to use this?" 
+                a="No. While our core user base consists of Web3 founders and NFT collectors, we built the Forge to be accessible to everyone. You do not need to connect a wallet or own any cryptocurrency to generate and download your avatars." 
+              />
+              <FAQItem 
+                q="Are there any hidden fees or subscriptions required?" 
+                a="No. Avatar Forge operates on a frictionless model. Currently, the platform is free to use during our beta phase. We will never lock you into an obscure monthly subscription plan." 
+              />
+              <FAQItem 
+                q="Can I mint these images directly onto a blockchain?" 
+                a="Absolutely. The files we generate are high-fidelity, standardized PNGs. They are perfectly optimized to be uploaded to IPFS (InterPlanetary File System) and minted on Ethereum, Solana, Base, Polygon, or any other smart contract platform of your choosing." 
+              />
+              <FAQItem 
+                q="What resolution are the downloaded files?" 
+                a="The AI natively generates at a perfect 128x128 pixel grid. When you click download, our engine automatically scales the asset up to a crisp, high-resolution PNG using nearest-neighbor interpolation so it is instantly ready for social media platforms without any blurriness." 
+              />
+              <FAQItem 
+                q="How exactly does the AI maintain the strict pixel art style?" 
+                a="The secret is in our backend architecture. When you type your prompt, our server intercepts your text and automatically wraps it in a complex array of positive modifiers, negative weights, and structural prompt-guards. This forces the diffusion model to ignore realistic rendering and exclusively output on a sharp pixel grid." 
+              />
+              <FAQItem 
+                q="Will the system ever generate the same image twice?" 
+                a="No. Even if two different users type the exact same prompt at the exact same time, the backend injects a randomly generated 'noise seed' into the computation. This guarantees that the final layout of the pixels will always be completely unique to your specific session." 
+              />
             </div>
           </div>
         </section>
@@ -218,6 +269,11 @@ export default function Home() {
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6">
             <div className="w-5 h-5 bg-gradient-to-tr from-violet-600 to-blue-600 rounded-[6px]" />
             <span className="text-slate-900 font-black tracking-widest text-sm sm:text-base">AVATAR FORGE</span>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-slate-400 mb-6">
+            <a href="#terminal" className="hover:text-violet-600 transition-colors">Generator</a>
+            <a href="#about" className="hover:text-violet-600 transition-colors">About Us</a>
+            <a href="#manifesto" className="hover:text-violet-600 transition-colors">Manifesto</a>
           </div>
           <p className="text-slate-400 text-[10px] sm:text-xs font-mono uppercase tracking-wider">
             © {new Date().getFullYear()} AVATAR FORGE TECHNOLOGIES. ALL RIGHTS RESERVED.
@@ -230,18 +286,19 @@ export default function Home() {
 
 function NavBar() {
   return (
-    <nav className="w-full flex justify-between items-center p-4 sm:p-5 lg:px-10 border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+    <nav className="w-full flex justify-between items-center p-4 sm:p-5 lg:px-10 border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm transition-all">
       <div className="font-black text-sm sm:text-base lg:text-xl tracking-widest text-slate-900 flex items-center gap-2 sm:gap-3 shrink-0">
         <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-tr from-violet-600 to-blue-600 rounded-[6px] shadow-sm shrink-0" />
-        <span>AVATAR FORGE</span>
+        <span className="shrink-0">AVATAR FORGE</span>
       </div>
-      <div className="hidden md:flex gap-8 text-xs font-bold tracking-widest text-slate-400 uppercase">
+      <div className="hidden md:flex gap-8 text-xs font-bold tracking-widest text-slate-500 uppercase">
         <a href="#gallery" className="hover:text-violet-600 transition-colors">Vault</a>
         <a href="#features" className="hover:text-violet-600 transition-colors">Features</a>
-        <a href="#about" className="hover:text-violet-600 transition-colors">Manifesto</a>
+        <a href="#about" className="hover:text-violet-600 transition-colors">About</a>
+        <a href="#manifesto" className="hover:text-violet-600 transition-colors">Manifesto</a>
         <a href="#faq" className="hover:text-violet-600 transition-colors">FAQ</a>
       </div>
-      <a href="#terminal" className="md:hidden text-[10px] font-black tracking-widest bg-violet-100 text-violet-700 px-3 py-2 rounded-lg border border-violet-200 uppercase">
+      <a href="#terminal" className="md:hidden text-[10px] font-black tracking-widest bg-violet-100 text-violet-700 px-3 py-2 rounded-lg border border-violet-200 uppercase shrink-0">
         FORGE
       </a>
     </nav>
