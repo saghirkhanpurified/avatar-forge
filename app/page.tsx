@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const pixelFont = "'Silkscreen', cursive";
 const LOADING_MSGS = ["HEATING THE FORGE...", "HAMMERING PIXELS...", "COOLING THE IRON...", "FINAL POLISH..."];
 
+// The original, perfectly curated 4-item Vault
 const vaultItems = [
   { id: "084", src: "/vault-1.png", prompt: "Cyberpunk Hacker in dark hoodie" },
   { id: "085", src: "/vault-2.png", prompt: "Fiery Knight in golden armor" },
@@ -104,6 +105,7 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
           <a href="#gallery" className="hover:text-violet-500 transition-colors hidden sm:block">Vault</a>
+          <a href="#guides" className="hover:text-violet-500 transition-colors hidden sm:block">Guides</a>
           <button onClick={toggleTheme} className="p-2 rounded-full border border-slate-500/20 hover:bg-slate-500/10 transition-colors text-lg">
             {isDark ? "☀️" : "🌙"}
           </button>
@@ -182,6 +184,28 @@ export default function Home() {
           </section>
         )}
 
+        {/* RESTORED: HOW IT WORKS SECTION */}
+        <section className={`py-24 border-t ${isDark ? 'border-white/5' : 'border-slate-200'}`}>
+          <h2 style={{ fontFamily: pixelFont }} className="text-2xl text-center mb-16 tracking-widest">HOW TO FORGE</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <motion.div whileHover={{ y: -5 }} className={`p-8 rounded-3xl backdrop-blur-sm transition-colors duration-500 border ${cardClass}`}>
+              <div className="w-12 h-12 bg-violet-600/20 text-violet-500 rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-black">1</div>
+              <h3 className="text-lg font-bold mb-4">Envision</h3>
+              <p className={`text-sm leading-relaxed ${textMuted}`}>Describe your character in the terminal. Whether it's a cyberpunk hacker or a fantasy mage, our AI engine understands your vision.</p>
+            </motion.div>
+            <motion.div whileHover={{ y: -5 }} className={`p-8 rounded-3xl backdrop-blur-sm transition-colors duration-500 border ${cardClass}`}>
+              <div className="w-12 h-12 bg-blue-600/20 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-black">2</div>
+              <h3 className="text-lg font-bold mb-4">Forge</h3>
+              <p className={`text-sm leading-relaxed ${textMuted}`}>Our custom-trained 16-bit AI pixelates your prompt instantly. Every single generation is 100% unique and created from scratch.</p>
+            </motion.div>
+            <motion.div whileHover={{ y: -5 }} className={`p-8 rounded-3xl backdrop-blur-sm transition-colors duration-500 border ${cardClass}`}>
+              <div className="w-12 h-12 bg-emerald-600/20 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-black">3</div>
+              <h3 className="text-lg font-bold mb-4">Mint</h3>
+              <p className={`text-sm leading-relaxed ${textMuted}`}>Download your high-fidelity asset. You own the commercial rights, allowing you to use it in games or mint it as an NFT on any chain.</p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* VAULT SECTION */}
         <section id="gallery" className={`py-24 border-t ${isDark ? 'border-white/5' : 'border-slate-200'}`}>
           <h2 style={{ fontFamily: pixelFont }} className="text-2xl text-center mb-16 tracking-widest">TODAY&apos;S FEATURED FORGES</h2>
@@ -200,10 +224,57 @@ export default function Home() {
           </div>
         </section>
 
+        {/* RESTORED: USE CASES SECTION */}
+        <section className={`py-24 border-t max-w-4xl mx-auto text-center ${isDark ? 'border-white/5' : 'border-slate-200'}`}>
+          <h2 style={{ fontFamily: pixelFont }} className="text-2xl mb-8 tracking-widest">WHY PIXEL ART?</h2>
+          <p className={`leading-relaxed mb-12 ${textMuted}`}>Pixel art isn't just nostalgia; it's a powerful aesthetic choice dominating modern digital spaces.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className={`text-left p-6 rounded-2xl border transition-colors duration-500 ${isDark ? 'bg-gradient-to-br from-violet-500/10 to-transparent border-white/5' : 'bg-violet-50 border-violet-100'}`}>
+              <h4 className="font-bold text-violet-500 mb-2">👾 Indie Game Development</h4>
+              <p className={`text-sm ${textMuted}`}>Skip the expensive freelance artists. Generate massive volumes of NPC sprites, main characters, and enemies in authentic SNES styles for engines like Unity and Godot.</p>
+            </div>
+            <div className={`text-left p-6 rounded-2xl border transition-colors duration-500 ${isDark ? 'bg-gradient-to-br from-blue-500/10 to-transparent border-white/5' : 'bg-blue-50 border-blue-100'}`}>
+              <h4 className="font-bold text-blue-500 mb-2">💎 Web3 & Digital Identity</h4>
+              <p className={`text-sm ${textMuted}`}>Stand out in Discord servers and on X. By generating 1-of-1 pixel art, you secure a unique digital footprint that can be tokenized as an NFT.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* RESTORED: SEO ACCORDION GUIDES */}
+        <section id="guides" className={`py-24 max-w-4xl mx-auto border-t ${isDark ? 'border-white/5' : 'border-slate-200'}`}>
+          <h2 style={{ fontFamily: pixelFont }} className="text-xl mb-12 text-center uppercase tracking-[0.3em]">Master the Forge</h2>
+          <div className="space-y-4">
+            {[
+              { q: "How to Create 16-Bit RPG Assets", a: "For a classic SNES look, use prompts like 'flat shading' and 'limited color palette'. Perfect for Unity indie games." },
+              { q: "Optimizing for Discord & Web3", a: "Always use nearest-neighbor scaling for sharp edges. Our 1-of-1 assets are ready for immediate NFT minting." },
+              { q: "Who owns the generated art?", a: "You do. Every image generated through The Avatar Forge comes with full commercial usage rights. You are free to mint, sell, or package the art." }
+            ].map((item, i) => (
+              <div key={i} className={`border rounded-2xl overflow-hidden transition-colors duration-500 ${cardClass}`}>
+                <button onClick={() => setActiveGuide(activeGuide === i ? null : i)} className={`w-full p-6 text-left flex justify-between items-center transition-colors ${isDark ? 'hover:bg-white/5' : 'hover:bg-slate-50'}`}>
+                  <span className="font-bold">{item.q}</span>
+                  <span className="text-violet-500 font-black">{activeGuide === i ? "−" : "+"}</span>
+                </button>
+                <AnimatePresence>
+                  {activeGuide === i && (
+                    <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} className={`px-6 pb-6 text-sm leading-relaxed ${textMuted}`}>
+                      {item.a}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </section>
+
       </div>
       
-      <footer className={`py-12 border-t text-center transition-colors duration-500 ${isDark ? 'border-white/5 bg-black/20' : 'border-slate-200 bg-white'}`}>
-        <p className={`text-[9px] font-mono tracking-widest ${textMuted}`}>© {new Date().getFullYear()} THE AVATAR FORGE.</p>
+      <footer className={`py-12 border-t text-center transition-colors duration-500 flex flex-col items-center gap-6 ${isDark ? 'border-white/5 bg-black/20' : 'border-slate-200 bg-slate-50'}`}>
+        <div className="flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+          <a href="/terms" className="hover:text-violet-500 transition-colors">Terms</a>
+          <a href="/privacy" className="hover:text-violet-500 transition-colors">Privacy</a>
+          <a href="https://x.com/SaghirWeb3" className="hover:text-violet-500 transition-colors">Support</a>
+        </div>
+        <p className={`text-[9px] font-mono tracking-widest ${textMuted}`}>© {new Date().getFullYear()} THE AVATAR FORGE. FORGED IN PAKISTAN.</p>
       </footer>
     </main>
   );
