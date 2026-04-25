@@ -43,6 +43,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* JSON-LD Structured Data for Google */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "The Avatar Forge",
+              "operatingSystem": "Web",
+              "applicationCategory": "DesignApplication",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "description": "The best free AI pixel art generator for 16-bit avatars and NFT art.",
+              "featureList": "AI Image Generation, Pixel Art Style, 1-of-1 Avatars, Commercial Usage Rights"
+            }),
+          }}
+        />
         {children}
         <Analytics />
       </body>
