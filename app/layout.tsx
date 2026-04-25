@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "The Avatar Forge | Free AI Pixel Art Generator",
   description: "Create unique 1-of-1 pixel art avatars in seconds. The best free AI pixel art generator for Web3, indie games, and digital identities. No wallets required.",
+  verification: {
+    google: "Numt_xZgHuBPBALKfYw7inpQIHZk7DvRDR4fMW0qLko",
+  },
   keywords: [
     "pixel art generator", 
     "AI pixel art", 

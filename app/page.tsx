@@ -241,6 +241,31 @@ export default function Home() {
           </div>
         </section>
 
+        {/* NEW SEO CONTENT WALL - FOR GOOGLE RANKING */}
+        <section className="scroll-mt-32 w-full bg-slate-50 py-16 border-t border-slate-200">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">The Best Free AI Pixel Art Generator for Web3 and Gaming</h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-loose">
+              Welcome to <strong>The Avatar Forge</strong>, the internet's premier tool for creating custom, one-of-a-kind 16-bit avatars. Whether you're an indie game developer in need of retro RPG assets, a Web3 enthusiast crafting a unique digital identity, or a designer looking for 16-bit inspiration, our AI-powered pixel art engine delivers professional results in seconds.
+            </p>
+            
+            <h3 className="text-xl font-bold text-slate-900">Why Choose Our AI Pixel Art Maker?</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 bg-white rounded-xl border border-slate-200">
+                <p className="text-slate-700 text-sm"><strong>100% Free:</strong> No hidden fees, no subscriptions, and no crypto wallets required to generate your art.</p>
+              </div>
+              <div className="p-4 bg-white rounded-xl border border-slate-200">
+                <p className="text-slate-700 text-sm"><strong>Instant Results:</strong> Our AI processes your text prompts instantly to create game-ready assets.</p>
+              </div>
+            </div>
+
+            <h3 className="text-xl font-bold text-slate-900">How to Master Your Prompts</h3>
+            <p className="text-slate-600 text-sm sm:text-base leading-loose">
+              To get the most out of our free 16-bit generator, be descriptive. Using keywords like "dynamic lighting," "neon glow," or "cyberpunk aesthetics" helps our AI understand the mood. Always include "pixel art" and "16-bit" for that authentic retro console look. Every image you create is user-owned, meaning you can mint it as an NFT or use it in your commercial projects without worry.
+            </p>
+          </div>
+        </section>
+
         {/* FOOTER */}
         <footer className="w-full py-10 sm:py-12 border-t border-slate-200 bg-slate-50 text-center px-4">
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6">
