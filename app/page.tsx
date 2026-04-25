@@ -5,10 +5,10 @@ import { useState, useEffect } from "react";
 const LOADING_MSGS = ["Starting the drawing...", "Adding colors...", "Making it pixel perfect...", "Finishing up..."];
 
 const vaultItems = [
-  { id: "084", src: "/vault-1.png", prompt: "A cyberpunk hacker in a dark hoodie with glowing neon green glasses" },
-  { id: "085", src: "/vault-2.png", prompt: "A fiery knight wearing heavy golden armor with glowing red eyes" },
-  { id: "086", src: "/vault-3.png", prompt: "A cool ape wearing a golden crown and dark sunglasses" },
-  { id: "087", src: "/vault-4.png", prompt: "An alien astronaut in a sleek white spacesuit with a purple visor" }
+  { id: "084", src: "/vault-1.png", prompt: "A cyberpunk hacker in a dark hoodie with glowing neon green glasses pixel art" },
+  { id: "085", src: "/vault-2.png", prompt: "A fiery knight wearing heavy golden armor with glowing red eyes 16-bit sprite" },
+  { id: "086", src: "/vault-3.png", prompt: "A cool ape wearing a golden crown and dark sunglasses retro pixel art" },
+  { id: "087", src: "/vault-4.png", prompt: "An alien astronaut in a sleek white spacesuit with a purple visor pixel art" }
 ];
 
 export default function Home() {
@@ -68,6 +68,7 @@ export default function Home() {
     <main className="min-h-[100dvh] w-full bg-slate-50 text-slate-600 font-sans selection:bg-violet-200 overflow-x-hidden flex flex-col relative">
       <NavBar />
 
+      {/* Background Decals */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[60%] sm:w-[40%] h-[40%] bg-blue-400/10 blur-[100px] sm:blur-[120px] rounded-full mix-blend-multiply" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] sm:w-[40%] h-[40%] bg-violet-400/10 blur-[100px] sm:blur-[120px] rounded-full mix-blend-multiply" />
@@ -122,7 +123,7 @@ export default function Home() {
 
                 {imgUrl && (
                   <div className={`absolute inset-0 z-30 transition-opacity duration-1000 ${isLoaded && !isWorking ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-                    <img src={imgUrl} alt="Art" className="w-full h-full object-cover" style={{ imageRendering: "pixelated" }} onLoad={() => setIsLoaded(true)} crossOrigin="anonymous" />
+                    <img src={imgUrl} alt="AI Generated Pixel Art" className="w-full h-full object-cover" style={{ imageRendering: "pixelated" }} onLoad={() => setIsLoaded(true)} crossOrigin="anonymous" />
                     {isLoaded && !isWorking && (
                       <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-slate-900/90 via-slate-900/60 to-transparent pt-20">
                         <button onClick={handleDownload} className="w-full bg-white hover:bg-slate-100 text-slate-900 font-black tracking-widest uppercase py-3 sm:py-3.5 rounded-xl transition-all active:scale-[0.98] text-[10px] sm:text-xs shadow-xl flex items-center justify-center gap-2">
@@ -170,7 +171,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-4 sm:mb-6 tracking-tight">THE VAULT.</h2>
             <div className="max-w-3xl mx-auto space-y-4 mb-10 sm:mb-16">
               <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-                Check out some recent creations! Because of how our AI works, no two images will ever look exactly the same, even if you type the exact same words.
+                Check out some recent creations! These custom 16-bit sprites show the power of our AI pixel art engine.
               </p>
             </div>
             
@@ -216,13 +217,7 @@ export default function Home() {
             </div>
             <div className="space-y-6 sm:space-y-8 text-slate-600 leading-loose text-sm sm:text-lg text-left md:text-center">
               <p>
-                We are a group of friends who love Web3 and NFTs. But as we spent time in these communities, we noticed a big problem: getting good art for your profile picture is either way too expensive, or you have to wait weeks for an artist to draw it.
-              </p>
-              <div className="bg-slate-50 border-l-4 border-violet-600 p-6 sm:p-8 rounded-r-2xl shadow-sm my-6 sm:my-8 text-left">
-                <p className="text-slate-900 font-bold text-lg sm:text-xl italic">"We built The Avatar Forge to fix this problem and make cool art accessible to everyone."</p>
-              </div>
-              <p>
-                We want everyone to have awesome, unique digital art without having to pay crazy prices. Our tool is free, super easy to use, and open to anyone who wants to create something cool. Try making your own custom character today!
+                We are a group of friends who love Web3 and NFTs. We built The Avatar Forge to make cool art accessible to everyone. Try making your own custom character today!
               </p>
             </div>
           </div>
@@ -241,7 +236,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* NEW SEO CONTENT WALL - FOR GOOGLE RANKING */}
+        {/* SEO CONTENT WALL */}
         <section className="scroll-mt-32 w-full bg-slate-50 py-16 border-t border-slate-200">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left space-y-6">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">The Best Free AI Pixel Art Generator for Web3 and Gaming</h2>
@@ -258,11 +253,29 @@ export default function Home() {
                 <p className="text-slate-700 text-sm"><strong>Instant Results:</strong> Our AI processes your text prompts instantly to create game-ready assets.</p>
               </div>
             </div>
+          </div>
+        </section>
 
-            <h3 className="text-xl font-bold text-slate-900">How to Master Your Prompts</h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-loose">
-              To get the most out of our free 16-bit generator, be descriptive. Using keywords like "dynamic lighting," "neon glow," or "cyberpunk aesthetics" helps our AI understand the mood. Always include "pixel art" and "16-bit" for that authentic retro console look. Every image you create is user-owned, meaning you can mint it as an NFT or use it in your commercial projects without worry.
-            </p>
+        {/* SEO GUIDES SECTION */}
+        <section className="scroll-mt-32 w-full bg-white py-16 border-t border-slate-200">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-8">Pixel Art Design Guides</h2>
+            
+            <div className="grid grid-cols-1 gap-8">
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-violet-600">How to Create 16-Bit RPG Assets for Free</h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Creating assets for an indie game usually takes weeks. With **The Avatar Forge**, you can generate a full cast of characters in minutes. To get that classic Super Nintendo (SNES) look, use prompts that specify a "limited color palette" and "flat shading." Our AI understands the nuances of retro console limitations, ensuring your sprites fit perfectly into any 2D game engine like Unity or Godot.
+                </p>
+              </div>
+
+              <div className="space-y-4 border-t border-slate-100 pt-8">
+                <h3 className="text-xl font-bold text-violet-600">Optimizing AI Pixel Art for Discord and Web3</h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  When using AI-generated pixel art for your Discord PFP or as an NFT, resolution matters. While our engine provides high-fidelity 16-bit renders, we recommend using a "nearest neighbor" scaling method if you need to enlarge your images. This keeps the edges sharp and prevents the "blurring" effect that happens with standard AI upscalers.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
