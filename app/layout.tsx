@@ -35,8 +35,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Elite Upgrade Font: Silkscreen */}
+        <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+      </head>
       <body className={inter.className}>
-        {/* JSON-LD Schema */}
+        {/* JSON-LD Schema for Google Search Authority */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
