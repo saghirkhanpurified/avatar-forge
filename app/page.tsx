@@ -7,22 +7,22 @@ import { motion, AnimatePresence } from "framer-motion";
 const pixelFont = "'Silkscreen', cursive";
 const LOADING_MSGS = ["HEATING THE FORGE...", "HAMMERING PIXELS...", "COOLING THE IRON...", "FINAL POLISH..."];
 
-// The Expanded 14-NFT Vault
+// The Authentically Forged 14-NFT Vault (Correct Prompts)
 const vaultItems = [
   { id: "084", src: "/vault-1.png", prompt: "Cyberpunk Hacker" },
   { id: "085", src: "/vault-2.png", prompt: "Fiery Knight" },
   { id: "086", src: "/vault-3.png", prompt: "Cool Ape King" },
   { id: "087", src: "/vault-4.png", prompt: "Alien Voyager" },
-  { id: "088", src: "/vault-5.png", prompt: "Golden Samurai" },
-  { id: "089", src: "/vault-6.png", prompt: "Neon DJ" },
-  { id: "090", src: "/vault-7.png", prompt: "Zombie Punk" },
-  { id: "091", src: "/vault-8.png", prompt: "Space Marine" },
-  { id: "092", src: "/vault-9.png", prompt: "Crypto Ninja" },
-  { id: "093", src: "/vault-10.png", prompt: "Steampunk Inventor" },
-  { id: "094", src: "/vault-11.png", prompt: "Mystic Sorcerer" },
-  { id: "095", src: "/vault-12.png", prompt: "Pixel Paladin" },
-  { id: "096", src: "/vault-13.png", prompt: "Cybernetic Assassin" },
-  { id: "097", src: "/vault-14.png", prompt: "Retro Glitch Demon" }
+  { id: "088", src: "/vault-5.png", prompt: "Web3 Developer Programmer" }, // Your X PFP
+  { id: "089", src: "/vault-6.png", prompt: "Skeleton Pirate Captain" },
+  { id: "090", src: "/vault-7.png", prompt: "Viking Berzerker Warrior" },
+  { id: "091", src: "/vault-8.png", prompt: "Phantom Spirit Specter" },
+  { id: "092", src: "/vault-9.png", prompt: "Reptilian Assassin Rogue" },
+  { id: "093", src: "/vault-10.png", prompt: "Dapper Steampunk Cat" },
+  { id: "094", src: "/vault-11.png", prompt: "Holy Paladin Knight" },
+  { id: "095", src: "/vault-12.png", prompt: "Arcane Storm Wizard" },
+  { id: "096", src: "/vault-13.png", prompt: "Ronin Samurai Warrior" },
+  { id: "097", src: "/vault-14.png", prompt: "Infernal Lava Demon" }
 ];
 
 export default function Home() {
@@ -141,7 +141,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MASSIVE 14-ITEM VAULT SECTION */}
+        {/* MASSIVE 14-ITEM VAULT SECTION (With Correct Prompts) */}
         <section id="gallery" className="py-24 border-t border-white/5">
           <h2 style={{ fontFamily: pixelFont }} className="text-2xl text-center mb-16 tracking-widest">TODAY&apos;S FEATURED FORGES</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
