@@ -142,7 +142,7 @@ export default function Home() {
 
         <section id="gallery" className="w-full bg-white py-24 border-y border-slate-200">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase">The Vault.</h2>
+            <h2 className="text-3xl font-black text-slate-900 mb-16 uppercase">TODAY'S FEATURED FORGES.</h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {vaultItems.map((item, i) => (
                 <div key={i} className="bg-slate-50 rounded-2xl border border-slate-200 p-3 group">
