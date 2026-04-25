@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://theavatarforge.vercel.app/sitemap.xml
