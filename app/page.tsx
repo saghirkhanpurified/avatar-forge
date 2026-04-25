@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const pixelFont = "'Silkscreen', cursive";
 const LOADING_MSGS = ["HEATING THE FORGE...", "HAMMERING PIXELS...", "COOLING THE IRON...", "FINAL POLISH..."];
 
-// The original, perfectly curated 4-item Vault
+// The perfectly curated 4-item Vault
 const vaultItems = [
   { id: "084", src: "/vault-1.png", prompt: "Cyberpunk Hacker in dark hoodie" },
   { id: "085", src: "/vault-2.png", prompt: "Fiery Knight in golden armor" },
@@ -76,6 +76,12 @@ export default function Home() {
   };
 
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
+  // Web3 Tip Jar Logic
+  const copyWallet = () => {
+    navigator.clipboard.writeText("0xc70C4b47C5Be4a510c645A3cdEaD2368F5Df0c6D");
+    alert("Wallet address copied! Thank you for supporting a solo developer. 🚀");
+  };
 
   // Theme Variables
   const isDark = theme === "dark";
@@ -184,7 +190,7 @@ export default function Home() {
           </section>
         )}
 
-        {/* RESTORED: HOW IT WORKS SECTION */}
+        {/* HOW IT WORKS SECTION */}
         <section className={`py-24 border-t ${isDark ? 'border-white/5' : 'border-slate-200'}`}>
           <h2 style={{ fontFamily: pixelFont }} className="text-2xl text-center mb-16 tracking-widest">HOW TO FORGE</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -224,7 +230,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* RESTORED: USE CASES SECTION */}
+        {/* USE CASES SECTION */}
         <section className={`py-24 border-t max-w-4xl mx-auto text-center ${isDark ? 'border-white/5' : 'border-slate-200'}`}>
           <h2 style={{ fontFamily: pixelFont }} className="text-2xl mb-8 tracking-widest">WHY PIXEL ART?</h2>
           <p className={`leading-relaxed mb-12 ${textMuted}`}>Pixel art isn't just nostalgia; it's a powerful aesthetic choice dominating modern digital spaces.</p>
@@ -240,7 +246,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* RESTORED: SEO ACCORDION GUIDES */}
+        {/* SEO ACCORDION GUIDES */}
         <section id="guides" className={`py-24 max-w-4xl mx-auto border-t ${isDark ? 'border-white/5' : 'border-slate-200'}`}>
           <h2 style={{ fontFamily: pixelFont }} className="text-xl mb-12 text-center uppercase tracking-[0.3em]">Master the Forge</h2>
           <div className="space-y-4">
@@ -268,11 +274,23 @@ export default function Home() {
 
       </div>
       
+      {/* FINAL FOOTER WITH METAMASK TIP JAR */}
       <footer className={`py-12 border-t text-center transition-colors duration-500 flex flex-col items-center gap-6 ${isDark ? 'border-white/5 bg-black/20' : 'border-slate-200 bg-slate-50'}`}>
+        
+        <div className="flex flex-col items-center gap-3 mb-4">
+          <p className={`text-xs font-bold uppercase tracking-widest ${textMuted}`}>Support the Public Good</p>
+          <button 
+            onClick={copyWallet}
+            className={`px-6 py-2 rounded-full border transition-all active:scale-95 text-[10px] font-black tracking-widest uppercase ${isDark ? 'border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 text-violet-400' : 'border-violet-200 bg-violet-100 hover:bg-violet-200 text-violet-700'}`}
+          >
+            💎 Copy Wallet Address to Tip
+          </button>
+        </div>
+
         <div className="flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
           <a href="/terms" className="hover:text-violet-500 transition-colors">Terms</a>
           <a href="/privacy" className="hover:text-violet-500 transition-colors">Privacy</a>
-          <a href="https://x.com/SaghirWeb3" className="hover:text-violet-500 transition-colors">Support</a>
+          <a href="https://x.com/SaghirWeb3" className="hover:text-violet-500 transition-colors">Twitter</a>
         </div>
         <p className={`text-[9px] font-mono tracking-widest ${textMuted}`}>© {new Date().getFullYear()} THE AVATAR FORGE. FORGED IN PAKISTAN.</p>
       </footer>
